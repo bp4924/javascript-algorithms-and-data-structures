@@ -238,4 +238,71 @@ function sequentialSizes(val) {
   return answer;
 }
 
-console.log(sequentialSizes(8));
+// console.log(sequentialSizes(8));
+
+// card counter
+let count = 0;
+
+function cc(card) {
+  // Only change code below this line
+  switch (card) {
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+    case 6:
+      count++;
+      break;
+    case 7:
+    case 8:
+    case 9:
+      break;
+    case 10:
+    case "J":
+    case "Q":
+    case "K":
+    case "A":
+      count--;
+      break;
+  }
+  let decision;
+  if (count > 0) {
+    decision = "Bet";
+  } else {
+    decision = "Hold";
+  }
+  return count + " " + decision;
+  // Only change code above this line
+}
+/*
+console.log(cc(2));
+console.log(cc(3));
+console.log(cc(7));
+console.log(cc("K"));
+console.log(cc("A"));
+*/
+
+// objects
+// value lookup
+
+// Setup
+function phoneticLookup(val) {
+  let result = "";
+  console.log(val);
+  // Only change code below this line
+  const lookup = {
+    alpha: "Adams",
+    bravo: "Boston",
+    charlie: "Chicago",
+    delta: "Denver",
+    echo: "Easy",
+    foxtrot: "Frank",
+  };
+
+  result = lookup[val];
+
+  // Only change code above this line
+  return result;
+}
+
+console.log(phoneticLookup("bravo"));
