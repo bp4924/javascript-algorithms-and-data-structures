@@ -359,8 +359,20 @@ function updateRecords(records, id, prop, value) {
   return records;
 }
 
-console.log(updateRecords(recordCollection, 5439, "artist", "ABBA"));
+//console.log(updateRecords(recordCollection, 5439, "artist", "ABBA"));
 
-console.log(
+/*console.log(
   updateRecords(recordCollection, 5439, "tracks", "Take a Chance on Me")
 );
+
+*/
+// Setup
+const myArray2 = [];
+
+// Only change code below this line.
+let i = 5;
+while (i >= 0) {
+  myArray2.push(i);
+  i--;
+}
+console.log(myArray2);
