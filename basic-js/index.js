@@ -375,4 +375,38 @@ while (i >= 0) {
   myArray2.push(i);
   i--;
 }
-console.log(myArray2);
+//console.log(myArray2);
+
+// Setup
+const myArray3 = [];
+
+// Only change code below this line
+for (let i = 0; i < 5; i++) {
+  myArray3[i] = i + 1;
+}
+
+//console.log(myArray3);
+
+// nested loops
+function multiplyAll(arr) {
+  let product = 1;
+  // Only change code below this line
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr[i].length; j++) {
+      product *= arr[i][j];
+    }
+  }
+
+  // Only change code above this line
+  return product;
+}
+
+console.log(
+  multiplyAll([
+    [1, 2],
+    [3, 4],
+    [5, 6, 7],
+  ])
+);
+
+// do ... while loop
