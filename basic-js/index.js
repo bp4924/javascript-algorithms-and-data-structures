@@ -396,11 +396,10 @@ function multiplyAll(arr) {
       product *= arr[i][j];
     }
   }
-
-  // Only change code above this line
   return product;
 }
 
+/*
 console.log(
   multiplyAll([
     [1, 2],
@@ -408,6 +407,7 @@ console.log(
     [5, 6, 7],
   ])
 );
+*/
 
 // do ... while loop
 
@@ -451,7 +451,7 @@ const contacts = [
   },
 ];
 
-console.log(contacts.length);
+//console.log(contacts.length);
 function lookUpProfile(name, prop) {
   // Only change code below this line
 
@@ -465,23 +465,45 @@ function lookUpProfile(name, prop) {
     }
   }
   return "No such contact " + name;
-
-  /*
-   for (let x = 0; x < contacts.length; x++) {
-    if (contacts[x].firstName === name) {
-      if (contacts[x].hasOwnProperty(prop)) {
-        return contacts[x][prop];
-      } else {
-        return "No such property";
-      }
-    }
-  }
-  return "No such contact";
-  */
-  // Only change code above this line
 }
 
+/*
 console.log(lookUpProfile("Akira", "lastName"));
 console.log(lookUpProfile("Kristian", "lastName"));
 console.log(lookUpProfile("Sherlock", "likes"));
 console.log(lookUpProfile("Harry", "likes"));
+*/
+
+// generate random numbers
+
+function randomRange(myMin, myMax) {
+  number = Math.floor(Math.random() * (myMax - myMin + 1)) + myMin;
+  return number;
+}
+
+// ternary operator
+
+// countdown using recursion
+function countdown(n) {
+  if (n < 1) {
+    return [];
+  } else {
+    const count = countdown(n - 1);
+    count.unshift(n);
+    return count;
+  }
+}
+
+// console.log(countdown(5));
+
+function rangeOfNumbers(startNum, endNum) {
+  if (endNum < startNum) {
+    return [];
+  } else {
+    const range = rangeOfNumbers(startNum, endNum - 1);
+    range.push(endNum);
+    return range;
+  }
+}
+
+console.log(rangeOfNumbers(2, 9));
