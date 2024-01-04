@@ -19,7 +19,15 @@ function editInPlace() {
   for (let i = 0; i < s.length; i++) {
     s[i] = x[i];
   }
-  console.log(s);
+  //  console.log(s);
   return s;
 }
-console.log(editInPlace());
+//console.log(editInPlace());
+
+//spread operator
+const arr1 = ["JAN", "FEB", "MAR", "APR", "MAY"];
+let arr2;
+
+arr2 = [...arr1]; // Change this line
+
+//console.log(arr2);
