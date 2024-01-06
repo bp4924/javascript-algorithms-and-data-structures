@@ -134,3 +134,36 @@ function makeList(arr) {
 
 const failuresList = makeList(result.failure);
 //console.log(makeList(result.failure));
+
+// concise declarative functions
+const bicycle = {
+  gear: 2,
+  setGear(newGear) {
+    this.gear = newGear;
+  },
+};
+bicycle.setGear(4);
+//console.log(bicycle.gear);
+
+// getters & setters
+
+class Thermostat {
+  constructor(fahrenheit) {
+    this._fahrenheit = fahrenheit;
+  }
+  //getter
+  get temperature() {
+    return (5 / 9) * (this._fahrenheit - 32);
+  }
+  //setter
+  set temperature(celcius) {
+    return (this._fahrenheit = (celcius * 9) / 5 + 32);
+  }
+}
+
+const thermos = new Thermostat(76); // Setting in Fahrenheit scale
+temp = thermos.temperature; // 24.44 in Celsius
+console.log(temp);
+thermos.temperature = 26;
+temp = thermos.temperature; // 26 in Celsius
+console.log(temp);
