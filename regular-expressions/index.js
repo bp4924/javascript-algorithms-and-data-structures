@@ -37,7 +37,28 @@ let vowelRegex = /[aeiou]/gi; // Change this line
 let result7 = quoteSample1.match(vowelRegex); // Change this line
 
 // match range of characters
-let quoteSample = "The quick brown fox jumps over the lazy dog.";
+let quoteSample2 = "The quick brown fox jumps over the lazy dog.";
 let alphabetRegex = /[a-z]/gi; // Change this line
-let result = quoteSample.match(alphabetRegex); // Change this line
+let result8 = quoteSample2.match(alphabetRegex); // Change this line
+
+// characters and numbers
+let quoteSample = "Blueberry 3.141592653s are delicious.";
+myRegex = /[h-s2-6]/gi; // Change this line
+let result = quoteSample.match(myRegex); // Change this line
+
+// negated characters
+quoteSample = "3 blind mice.";
+myRegex = /[^0-9 .]/gi; // Change this line
+result = result = quoteSample.match(myRegex); // Change this line
+
+// match consecutive characters
+let difficultSpelling = "Mississippi";
+myRegex = /s+/gi; // Change this line
+result = difficultSpelling.match(myRegex);
+
+// lazy matching
+let text = "<h1>Winter is coming</h1>";
+myRegex = /<.*?>/; // Change this line
+result = text.match(myRegex);
+
 console.log(result);
