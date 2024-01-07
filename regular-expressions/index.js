@@ -61,4 +61,37 @@ let text = "<h1>Winter is coming</h1>";
 myRegex = /<.*?>/; // Change this line
 result = text.match(myRegex);
 
+// match beginning string patterns
+let rickyAndCal = "Cal and Ricky both like racing.";
+let calRegex = /^Cal/; // Change this line
+result = calRegex.test(rickyAndCal);
+
+// ending string patterns
+let caboose = "The last car on a train is the caboose";
+let lastRegex = /caboose$/; // Change this line
+result = lastRegex.test(caboose);
+
+// match all shorthand
+quoteSample = "The five boxing wizards jump quickly.";
+let alphabetRegexV2 = /\w/g; // Change this line
+result = quoteSample.match(alphabetRegexV2).length;
+
+// match everything but letters and numbers
+quoteSample = "The five boxing wizards jump quickly.";
+let nonAlphabetRegex = /\W/g; // Change this line
+result = quoteSample.match(nonAlphabetRegex).length;
+
+// match all numbers
+let movieName = "2001: A Space Odyssey";
+let numRegex = /\d/g; // Change this line
+result = movieName.match(numRegex).length;
+
+// user names
+let username = "JackOfAllTrades";
+let userCheck = /^[a-z][a-z]+\d*$|^[a-z]\d\d+$/i; // Change this line
+result = userCheck.test(username);
+
+// match whitespace uses \s shorthand
+// match whitespace uses \S shorthand
+
 console.log(result);
