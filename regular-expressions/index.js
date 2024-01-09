@@ -108,4 +108,22 @@ let favWord = "favorite";
 let favRegex = /favou?rite/; // Change this line
 result = favRegex.test(favWord);
 
+// lookaheads
+// positive ?=...
+// negative !?...
+
+let sampleWord = "astron64aut5";
+let pwRegex = /(?=\w{6})(?=\w*\d{2})/; // Change this line
+result = pwRegex.test(sampleWord);
+
+// mixed grouping
+myString = "Franklin Delano Roosevelt";
+myRegex = /(Franklin|Eleanor) (([A-Z]\.?|[A-Z][a-z]+) )?Roosevelt/; // Change this line
+result = myRegex.test(myString); // Change this line
+// After passing the challenge experiment with myString and see how the grouping works
+
+// repeat patterns
+let repeatNum = "42 42 42";
+let reRegex = /^(\d+) \1 \1$/; // Change this line
+result = reRegex.test(repeatNum);
 console.log(result);
