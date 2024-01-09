@@ -94,4 +94,18 @@ result = userCheck.test(username);
 // match whitespace uses \s shorthand
 // match whitespace uses \S shorthand
 
+// specify upper & lower number of matches
+// quantity specifiers
+// match lower limit only using {n,}
+// match exact only using {n}
+
+let ohStr = "Ohhh no";
+let ohRegex = /Oh{3,6} no/; // Change this line
+result = ohRegex.test(ohStr);
+
+// check for all or none
+let favWord = "favorite";
+let favRegex = /favou?rite/; // Change this line
+result = favRegex.test(favWord);
+
 console.log(result);
