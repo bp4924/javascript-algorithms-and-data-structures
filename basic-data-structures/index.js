@@ -58,10 +58,19 @@ console.log(
 function copyMachine(arr, num) {
   let newArr = [];
   while (num >= 1) {
-    newArr.push(...arr);
+    newArr.push([...arr]);
     num--;
   }
   return newArr;
 }
+//console.log(copyMachine([true, false, true], 2));
 
-console.log(copyMachine([true, false, true], 2));
+// combine arrays using spread operator
+function spreadOut() {
+  let fragment = ["to", "code"];
+  let sentence = ["learning", ...fragment, "is", "fun"];
+  return sentence;
+}
+//console.log(spreadOut());
+
+// check for element with indexOf()
