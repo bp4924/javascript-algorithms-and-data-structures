@@ -1,16 +1,12 @@
 // access an arrayls contents
 let myArray = ["a", "b", "c", "d"];
-// Only change code below this line
 myArray[1] = "boo";
-// Only change code above this line
 //console.log(myArray);
 
 // add items using push and unshift methods
 function mixedNumbers(arr) {
-  // Only change code below this line
   arr.push([7, "VIII", 9]);
   arr.unshift("I", 2, "three");
-  // Only change code above this line
   return arr;
 }
 //console.log(mixedNumbers(["IV", 5, "six"]));
@@ -22,4 +18,50 @@ function popShift(arr) {
   return [shifted, popped];
 }
 
-console.log(popShift(["challenge", "is", "not", "complete"]));
+//console.log(popShift(["challenge", "is", "not", "complete"]));
+
+// remove items with splice method
+const arr = [2, 4, 5, 1, 7, 5, 2, 1];
+arr.splice(1, 4);
+//console.log(arr);
+
+// replace items with splice method
+function htmlColorNames(arr) {
+  //  console.log(arr);
+  arr.splice(0, 2, "DarkSalmon", "BlanchedAlmond");
+  return arr;
+}
+
+/*console.log(
+  htmlColorNames([
+    "DarkGoldenRod",
+    "WhiteSmoke",
+    "LavenderBlush",
+    "PaleTurquoise",
+    "FireBrick",
+  ])
+);
+*/
+
+// copy array using slice()
+function forecast(arr) {
+  let newArr = arr.slice(2, 4);
+  return newArr;
+}
+/*
+console.log(
+  forecast(["cold", "rainy", "warm", "sunny", "cool", "thunderstorms"])
+);
+*/
+
+// copy array with spread operator
+function copyMachine(arr, num) {
+  let newArr = [];
+  while (num >= 1) {
+    newArr.push(...arr);
+    num--;
+  }
+  return newArr;
+}
+
+console.log(copyMachine([true, false, true], 2));
