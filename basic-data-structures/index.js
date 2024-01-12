@@ -169,11 +169,93 @@ let foods = {
   grapes: 35,
   strawberries: 27,
 };
-
-// Only change code below this line
 delete foods.apples;
 delete foods.plums;
 delete foods.strawberries;
-// Only change code above this line
+//console.log(foods);
 
-console.log(foods);
+// check for property
+let users1 = {
+  Alan: {
+    age: 27,
+    online: true,
+  },
+  Jeff: {
+    age: 32,
+    online: true,
+  },
+  Sarah: {
+    age: 48,
+    online: true,
+  },
+  Ryan: {
+    age: 19,
+    online: true,
+  },
+};
+
+function isEveryoneHere(userObj) {
+  if (
+    "Alan" in userObj &&
+    "Jeff" in userObj &&
+    "Sarah" in userObj &&
+    "Ryan" in userObj
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+//console.log(isEveryoneHere(users1));
+
+// iterate through keys
+const users4 = {
+  Alan: {
+    online: false,
+  },
+  Jeff: {
+    online: true,
+  },
+  Sarah: {
+    online: false,
+  },
+};
+
+function countOnline(allUsers) {
+  let count = 0;
+  for (let user in allUsers) {
+    if (allUsers[user].online === true) {
+      count++;
+    }
+  }
+  return count;
+}
+//console.log(countOnline(users4));
+
+// object.keys()
+let users = {
+  Alan: {
+    age: 27,
+    online: false,
+  },
+  Jeff: {
+    age: 32,
+    online: true,
+  },
+  Sarah: {
+    age: 48,
+    online: false,
+  },
+  Ryan: {
+    age: 19,
+    online: true,
+  },
+};
+
+function getArrayOfUsers(obj) {
+  // Only change code below this line
+  return Object.keys(obj);
+  // Only change code above this line
+}
+
+console.log(getArrayOfUsers(users));
