@@ -96,7 +96,7 @@ function filteredArray(arr, elem) {
   }
   return newArr;
 }
-
+/*
 console.log(
   filteredArray(
     [
@@ -108,7 +108,7 @@ console.log(
     3
   )
 );
-
+*/
 // nested arrays
 let myNestedArray = [
   // Only change code below this line
@@ -119,3 +119,61 @@ let myNestedArray = [
   ["iterate", 1.3849, 7, "8.4876", "arbitrary", "depth", [[["deepest"]]]],
   // Only change code above this line
 ];
+
+// add elements to objects
+const foods1 = {
+  apples: 25,
+  oranges: 32,
+  plums: 28,
+};
+
+foods1.bananas = 13;
+foods1.grapes = 35;
+foods1.strawberries = 27;
+
+//console.log(foods1);
+
+// modify nested object
+let userActivity = {
+  id: 23894201352,
+  date: "January 1, 2017",
+  data: {
+    totalUsers: 51,
+    online: 42,
+  },
+};
+userActivity.data.online = 45;
+//console.log(userActivity);
+
+// access property names in objects
+let foods2 = {
+  apples: 25,
+  oranges: 32,
+  plums: 28,
+  bananas: 13,
+  grapes: 35,
+  strawberries: 27,
+};
+
+function checkInventory(scannedItem) {
+  return foods2[scannedItem];
+}
+//console.log(checkInventory("apples"));
+
+// delete object property
+let foods = {
+  apples: 25,
+  oranges: 32,
+  plums: 28,
+  bananas: 13,
+  grapes: 35,
+  strawberries: 27,
+};
+
+// Only change code below this line
+delete foods.apples;
+delete foods.plums;
+delete foods.strawberries;
+// Only change code above this line
+
+console.log(foods);
