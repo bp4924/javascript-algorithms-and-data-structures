@@ -74,3 +74,37 @@ function spreadOut() {
 //console.log(spreadOut());
 
 // check for element with indexOf()
+function quickCheck(arr, elem) {
+  // Only change code below this line
+  if (arr.indexOf(elem) == -1) {
+    return false;
+  } else {
+    return true; // Only change code above this line
+  }
+}
+
+//console.log(quickCheck(["squash", "onions", "shallots"], "mushrooms"));
+//console.log(quickCheck(["squash", "onions", "shallots"], "onions"));
+
+// iterate through array items
+function filteredArray(arr, elem) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].indexOf(elem) == -1) {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
+}
+
+console.log(
+  filteredArray(
+    [
+      [3, 2, 3],
+      [1, 6, 3],
+      [3, 13, 26],
+      [19, 3, 9],
+    ],
+    3
+  )
+);
