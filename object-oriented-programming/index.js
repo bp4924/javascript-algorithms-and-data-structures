@@ -1,4 +1,4 @@
-// basic js Object
+/* // basic js Object
 let dog = {
   name: "Lola",
   numLegs: 4,
@@ -61,13 +61,13 @@ let beagle1 = new Dog2("Snoopy");
 //console.log(beagle1.numLegs);
 
 // iterate through all properties
-function Dog(name) {
+function Dog2(name) {
   this.name = name;
 }
 
-Dog.prototype.numLegs = 4;
+Dog2.prototype.numLegs = 4;
 
-let beagle = new Dog("Snoopy");
+let beagle = new Dog2("Snoopy");
 
 let ownProps = [];
 let prototypeProps = [];
@@ -82,3 +82,122 @@ for (let property in beagle) {
 }
 console.log(ownProps);
 console.log(prototypeProps);
+
+// change prototype to new Object
+function Dog(name) {
+  this.name = name;
+}
+
+Dog.prototype = {
+  // Only change code below this line
+  numLegs: 4,
+  eat: function () {
+    console.log("nom nom nom");
+  },
+  describe: function () {
+    console.log(`${this.name} is a good dog.`);
+  },
+};
+console.log(new Dog("Lola"));
+
+// inheritance from supertype
+function Animal() {}
+
+Animal.prototype = {
+  constructor: Animal,
+  eat: function () {
+    console.log("nom nom nom");
+  },
+};
+
+// Only change code below this line
+let duck = Object.create(Animal.prototype); // Change this line
+let beagle = Object.create(Animal.prototype); // Change this line
+*/
+/*
+// add methods after inheritance
+function Animal() {}
+Animal.prototype.eat = function () {
+  console.log("nom nom nom");
+};
+
+function Dog() {}
+
+// Only change code below this line
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog;
+
+Dog.prototype.bark = function () {
+  console.log("Woof!");
+};
+
+// Only change code above this line
+
+let beagle = new Dog();
+
+
+// override inherited methods
+function Bird() {}
+
+Bird.prototype.fly = function () {
+  return "I am flying!";
+};
+
+function Penguin() {}
+Penguin.prototype = Object.create(Bird.prototype);
+Penguin.prototype.constructor = Penguin;
+
+// Only change code below this line
+Penguin.prototype.fly = function () {
+  return "Alas, this is a flightless bird.";
+};
+// Only change code above this line
+
+let penguin = new Penguin();
+console.log(penguin.fly());
+
+// add methods using mixins
+let bird = {
+  name: "Donald",
+  numLegs: 2,
+};
+
+let boat = {
+  name: "Warrior",
+  type: "race-boat",
+};
+
+// Only change code below this line
+let glideMixin = function (obj) {
+  obj.glide = function () {
+    console.log("Gliding");
+  };
+};
+
+glideMixin(bird);
+glideMixin(boat);
+
+// privliged methods
+function Bird() {
+  let weight = 15;
+  this.getWeight = function () {
+    return weight;
+  };
+}
+*/
+
+// create a module with IIFE
+let funModule = (function () {
+  return {
+    isCuteMixin: function (obj) {
+      obj.isCute = function () {
+        return true;
+      };
+    },
+    singMixin: function (obj) {
+      obj.sing = function () {
+        console.log("Singing to an awesome tune");
+      };
+    },
+  };
+})();
