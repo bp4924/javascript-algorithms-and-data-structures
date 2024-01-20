@@ -62,10 +62,32 @@ function sentensify(str) {
 
 console.log(sentensify("May-the-force-be-with-you"));
 */
-
-//// Only change code below this line
+/*
+// chain methods
 function urlSlug(title) {
   return title.trim().toLowerCase().trim().split(/\s+/).join("-");
 }
 // Only change code above this line
 console.log(urlSlug(" A Mind Needs  Books Like A Sword Needs A Whetstone"));
+*/
+/*
+// some method (opposite of every)
+function checkPositive(arr) {
+  // Only change code below this line
+  return arr.some((value) => value < 0);
+
+  // Only change code above this line
+}
+
+console.log(checkPositive([1, 2, 3, -4, 5]));
+*/
+
+//curried and uncurried functions
+function add(x) {
+  // Only change code below this line
+  return (y) => (z) => x + y + z;
+
+  // Only change code above this line
+}
+
+console.log(add(10)(20)(30));
