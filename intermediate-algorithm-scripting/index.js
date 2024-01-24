@@ -131,7 +131,7 @@ console.log(myReplace("This has a spellngi error", "spellngi", "spelling"));
 
 console.log(myReplace("His name is Tom", "Tom", "john"));
 */
-
+/*
 // return pairs from strings
 function pairElement(str) {
   console.log(str.length);
@@ -150,3 +150,4 @@ console.log(pairElement("GCG"));
 console.log(pairElement("ATCGA"));
 console.log(pairElement("TTGAG"));
 console.log(pairElement("CTCTA"));
+*/
