@@ -108,7 +108,7 @@ console.log(translatePigLatin("glove"));
 console.log(translatePigLatin("eight"));
 console.log(translatePigLatin("rhythm"));
 */
-
+/*
 // search and replace
 function myReplace(str, before, after) {
   //const regex = /^[A-Z/]/;
@@ -130,3 +130,23 @@ console.log(myReplace("He is Sleeping on the couch", "Sleeping", "sitting"));
 console.log(myReplace("This has a spellngi error", "spellngi", "spelling"));
 
 console.log(myReplace("His name is Tom", "Tom", "john"));
+*/
+
+// return pairs from strings
+function pairElement(str) {
+  console.log(str.length);
+  let newStr = [];
+  for (let i = 0; i < str.length - 1; i++) {
+    for (let j = 0; j < str.length - 1; [j++]) {
+      newStr = str[i] + str[i + 1];
+    }
+
+    console.log(newStr.split());
+  }
+  return str;
+}
+
+console.log(pairElement("GCG"));
+console.log(pairElement("ATCGA"));
+console.log(pairElement("TTGAG"));
+console.log(pairElement("CTCTA"));
