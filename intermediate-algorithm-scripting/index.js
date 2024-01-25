@@ -134,16 +134,25 @@ console.log(myReplace("His name is Tom", "Tom", "john"));
 /*
 // return pairs from strings
 function pairElement(str) {
-  console.log(str.length);
-  let newStr = [];
-  for (let i = 0; i < str.length - 1; i++) {
-    for (let j = 0; j < str.length - 1; [j++]) {
-      newStr = str[i] + str[i + 1];
+  const matchWithBasePair = function (char) {
+    switch (char) {
+      case "A":
+        return ["A", "T"];
+      case "T":
+        return ["T", "A"];
+      case "C":
+        return ["C", "G"];
+      case "G":
+        return ["G", "C"];
     }
+  };
 
-    console.log(newStr.split());
+  // Find pair for every character in the string
+  const pairs = [];
+  for (let i = 0; i < str.length; i++) {
+    pairs.push(matchWithBasePair(str[i]));
   }
-  return str;
+  return pairs;
 }
 
 console.log(pairElement("GCG"));
@@ -151,3 +160,28 @@ console.log(pairElement("ATCGA"));
 console.log(pairElement("TTGAG"));
 console.log(pairElement("CTCTA"));
 */
+
+// find missing letter
+function fearNotLetter(str) {
+  const alphabet = "abcdefghijklmnopqrstuvwxyz";
+  const startLetterIndex = alphabet.indexOf(str[0]);
+  let missingLetter = "";
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== alphabet[i + startLetterIndex]) {
+      missingLetter = alphabet[i + startLetterIndex];
+      return missingLetter;
+    }
+  }
+  return undefined;
+}
+
+console.log(fearNotLetter("abce"));
+console.log("----");
+console.log(fearNotLetter("abcdefghjklmno"));
+console.log("----");
+console.log(fearNotLetter("stvwx"));
+console.log("----");
+console.log(fearNotLetter("bcdf"));
+console.log("----");
+console.log(fearNotLetter("abcdefghijklmnopqrstuvwxyz"));
