@@ -160,7 +160,7 @@ console.log(pairElement("ATCGA"));
 console.log(pairElement("TTGAG"));
 console.log(pairElement("CTCTA"));
 */
-
+/*
 // find missing letter
 function fearNotLetter(str) {
   const alphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -185,3 +185,27 @@ console.log("----");
 console.log(fearNotLetter("bcdf"));
 console.log("----");
 console.log(fearNotLetter("abcdefghijklmnopqrstuvwxyz"));
+*/
+
+// sorted union
+function uniteUnique(arr) {
+  const newArr = [];
+  //  console.log(arr);
+  const args = [...arguments];
+  for (let i = 0; i < args.length; i++) {
+    //    console.log(`arr: ${arr[i]} length: ${arr[i].length}`);
+
+    for (let j = 0; j < args[i].length; j++) {
+      if (!newArr.includes(args[i][j])) {
+        newArr.push(args[i][j]);
+      }
+    }
+  }
+  return newArr;
+}
+
+console.log(uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]));
+console.log(uniteUnique([1, 2, 3], [5, 2, 1]));
+console.log(uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]));
+console.log(uniteUnique([1, 3, 2], [5, 4], [5, 6]));
+console.log(uniteUnique([1, 3, 2, 3], [5, 2, 1, 4], [2, 1]));
