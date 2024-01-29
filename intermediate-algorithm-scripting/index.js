@@ -186,7 +186,7 @@ console.log(fearNotLetter("bcdf"));
 console.log("----");
 console.log(fearNotLetter("abcdefghijklmnopqrstuvwxyz"));
 */
-
+/*
 // sorted union
 function uniteUnique(arr) {
   const newArr = [];
@@ -209,3 +209,29 @@ console.log(uniteUnique([1, 2, 3], [5, 2, 1]));
 console.log(uniteUnique([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8]));
 console.log(uniteUnique([1, 3, 2], [5, 4], [5, 6]));
 console.log(uniteUnique([1, 3, 2, 3], [5, 2, 1, 4], [2, 1]));
+*/
+
+// convert to symbols to html
+function convertHTML(str) {
+  //elements and their replacements
+  const htmlEntities = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&apos;",
+  };
+
+  return str
+    .split("")
+    .map((entity) => htmlEntities[entity] || entity) // replace if found, else leave
+    .join("");
+}
+
+console.log(convertHTML("Dolce & Gabbana"));
+console.log(convertHTML("Hamburgers < Pizza < Tacos"));
+console.log(convertHTML("Sixty > twelve"));
+console.log(convertHTML('Stuff in "quotation marks"'));
+console.log(convertHTML("Schindler's List"));
+console.log(convertHTML("<>"));
+console.log(convertHTML("abc"));
