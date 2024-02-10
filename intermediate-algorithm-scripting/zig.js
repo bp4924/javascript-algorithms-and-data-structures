@@ -18,42 +18,36 @@ string convert(string s, int numRows);
  * @return {string}
  */
 var convert = function (s, numRows) {
-  // split s
-  const splitS = s.split("");
-  console.log(splitS);
-  const newString = [];
-  // loop through splitS
-  for (let i = 0; i < splitS.length; i++) {
-    let addSpace = i % numRows;
-    if (i !== 0) {
-      if (addSpace === 0) {
-        newString.push("");
-        console.log("space", newString);
-      } else {
-        newString.push(splitS[i]);
-        console.log("letter", newString);
+  // check for s == null, numRows neg or 0
+  if (s === null || numRows <= 0) {
+    return "";
+  }
+  // check for 1 row
+  if (numRows === 1) {
+    return s;
+  }
+  let result = "";
+  const step = 2 * numRows - 2;
+
+  // skip letters in string based on numRows
+  // iterate through s
+  for (let i = 0; i < numRows; i++) {
+    for (let j = i; j < s.length; j += step) {
+      // step through
+      result += s[j];
+      if (i != 0 && i != numRows - 1 && j + step - 2 * i < s.length) {
+        // step to next letter in the row and add it to result
+        result += s[j + step - 2 * i];
       }
-    } else {
-      newString.push(splitS[i]);
-      console.log("letter", newString);
     }
   }
-  return newString;
-  /*    const newString = [];
-    for (let j = 0; j < numRows; j++) {
-      let position = [j, i];
-      newString.push(splitS[i + j]);
-      console.log(position, newString);
-    }
-    */
+  return result;
 };
-// change column when row > numRow * col + 1
-// read by row
-// remove blanks
-// return as string
-//};
 
-convert("PAYPALISHIRING", 3);
+console.log(convert("PAYPALISHIRING", 3));
+console.log(convert("PAYPALISHIRING", 4));
+console.log(convert("A", 1));
+
 /* Example 1:
 Input: s = "PAYPALISHIRING", numRows = 3
 Output: "PAHNAPLSIIGYIR"
