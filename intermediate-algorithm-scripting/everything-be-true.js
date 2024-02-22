@@ -1,5 +1,6 @@
 // check for truthy elements
 function truthCheck(collection, pre) {
+  // find elements that are not null or false
   return pre;
 }
 
