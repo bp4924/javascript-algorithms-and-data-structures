@@ -1,7 +1,14 @@
 // check for truthy elements
 function truthCheck(collection, pre) {
   // find elements that are not null or false
-  return pre;
+  let truthy = true;
+  for (let c in collection) {
+    if (!collection[c][pre]) {
+      return false;
+    }
+    truthy = true;
+  }
+  return truthy;
 }
 
 console.log(
@@ -11,7 +18,7 @@ console.log(
       { name: "Naomi", role: "", isBot: false },
       { name: "Camperbot", role: "Bot", isBot: true },
     ],
-    "isBot"
+    "isBot" // false (some are false)
   )
 );
 
@@ -22,7 +29,7 @@ console.log(
       { name: "Naomi", role: "", isBot: false },
       { name: "Camperbot", role: "Bot", isBot: true },
     ],
-    "name"
+    "name" // true (all have a name)
   )
 );
 
@@ -33,7 +40,7 @@ console.log(
       { name: "Naomi", role: "", isBot: false },
       { name: "Camperbot", role: "Bot", isBot: true },
     ],
-    "role"
+    "role" // false (Naomi has no role)
   )
 );
 console.log(
@@ -42,7 +49,7 @@ console.log(
       { name: "Pikachu", number: 25, caught: 3 },
       { name: "Togepi", number: 175, caught: 1 },
     ],
-    "number"
+    "number" // true (all have a number)
   )
 );
 console.log(
@@ -52,7 +59,7 @@ console.log(
       { name: "Togepi", number: 175, caught: 1 },
       { name: "MissingNo", number: NaN, caught: 0 },
     ],
-    "caught"
+    "caught" // false (MissingNo has caught value of 0)
   )
 );
 
@@ -63,7 +70,7 @@ console.log(
       { name: "Togepi", number: 175, caught: 1 },
       { name: "MissingNo", number: NaN, caught: 0 },
     ],
-    "number"
+    "number" // false (MissingNo has a number value of NaN)
   )
 );
 console.log(
@@ -73,7 +80,7 @@ console.log(
       { name: "Naomi", username: "nhcarrigan" },
       { name: "Camperbot" },
     ],
-    "username"
+    "username" // false (Camperbot has no username property)
   )
 );
 console.log(
@@ -83,7 +90,7 @@ console.log(
       { name: "Code Radio", users: [{ name: "Camperbot" }] },
       { name: "", users: [] },
     ],
-    "users"
+    "users" // true
   )
 );
 console.log(
@@ -99,7 +106,7 @@ console.log(
       },
       { id: null, data: {} },
     ],
-    "data"
+    "data" // true
   )
 );
 console.log(
@@ -115,6 +122,6 @@ console.log(
       },
       { id: null, data: {} },
     ],
-    "id"
+    "id" // false (3rd object id is null)
   )
 );
