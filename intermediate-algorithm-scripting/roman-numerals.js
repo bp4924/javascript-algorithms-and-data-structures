@@ -1,7 +1,8 @@
+/*
 // loop through the integer by position
 // for int[0]
 
-const int = 3;
+const int = 39;
 const str = int.toString();
 let result = "";
 for (let i = 0; i <= str.length - 1; i++) {
@@ -10,6 +11,12 @@ for (let i = 0; i <= str.length - 1; i++) {
   console.log(`position ${position} Value: ${value}`);
   switch (position) {
     case 1:
+      if (value == 9) {
+        // edge case: value 9
+        result = result + "IX";
+        break;
+      }
+
       if (value >= 5) {
         console.log(`value before adjustment ${value}`);
         // edge case: value 5 or more
@@ -19,7 +26,7 @@ for (let i = 0; i <= str.length - 1; i++) {
       }
       // loop through value. add character for each loop
 
-      for (let j = value; j > 1; j--) {
+      for (let j = 0; j < value; j++) {
         if (value == 4) {
           // edge case: value is 4. place character ahead
           result = "I" + result;
@@ -27,14 +34,12 @@ for (let i = 0; i <= str.length - 1; i++) {
         } else {
           result = result + "I";
         }
-
-        result = result + "I";
       }
       console.log(`result 1 ${result}`);
       break;
 
     case 2:
-      if (str[i] >= 5) {
+      if (value >= 5) {
         // edge case: value 5 or more
         result = result + "L";
         value = value - 5;
@@ -82,7 +87,7 @@ for (let i = 0; i <= str.length - 1; i++) {
         result = result + vinculumV;
         value = value - 5;
       }
-*/
+
       // loop through value. add character for each loop
       for (let j = 0; j < value - 1; j++) {
         result = result + "M";
@@ -99,3 +104,35 @@ for (let i = 0; i <= str.length - 1; i++) {
   // console.log(result);
 }
 console.log(result);
+*/
+function intToRoman(num) {
+  const lookup = {
+    M: 1000,
+    CM: 900,
+    D: 500,
+    CD: 400,
+    C: 100,
+    XC: 90,
+    L: 50,
+    XL: 40,
+    X: 10,
+    IX: 9,
+    V: 5,
+    IV: 4,
+    I: 1,
+  };
+  let roman = "";
+  for (let i in lookup) {
+    while (num >= lookup[i]) {
+      console.log(`i: ${i} lookup[i]: ${lookup[i]}`);
+      roman += i;
+      num -= lookup[i];
+      console.log(num);
+    }
+  }
+  return roman;
+}
+
+console.log(intToRoman(3999));
+console.log(intToRoman(4999));
+console.log(intToRoman(979));
