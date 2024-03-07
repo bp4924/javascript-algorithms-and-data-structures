@@ -1,5 +1,16 @@
 function checkCashRegister(price, cash, cid) {
+  // compute value of cid
   let change = cid;
+  let cidTotal = 0;
+  for (let i in cid) {
+    cidTotal = cidTotal + cid[i][1];
+  }
+  console.log(`cidTotal ${cidTotal}`);
+  const changeDue = -(price - cash);
+  console.log(`change due ${changeDue}`);
+  // check for sufficient change
+  if (changeDue < 0) return "inadequate payment";
+  if (changeDue > cidTotal) return "INSUFFICIENT_FUNDS";
   return change;
 }
 
