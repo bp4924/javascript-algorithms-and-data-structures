@@ -1,28 +1,54 @@
 function checkCashRegister(price, cash, cid) {
-  // compute value of cid
-  let cidTotal = 0;
-  let status = "open";
+  let changeDue = 100 * (cash - price);
+  const cidValues = [1, 5, 10, 25, 100, 500, 1000, 2000, 10000];
   let result = [];
-  for (let i in cid) {
-    cidTotal = cidTotal + cid[i][1];
+  /* 
+  let cidTotal = 0;
+  for (let i = 0; i < cid.length; i++) {
+    cidTotal += cid[i][1];
   }
-  console.log(`cidTotal ${cidTotal}`);
-  const changeDue = -(price - cash);
-  // check for sufficient change
-  if (changeDue === cidTotal) {
+  console.log(cidTotal);
+ */
+  let status = "open";
+
+  // increment result
+  // if change > == && cid == 0, insufficient funds
+  // else return result
+
+  /*   // check for sufficient change
+  if (changeDue === 0) {
     status = "CLOSED";
+    result = cid;
   }
-  if (changeDue > cidTotal) {
+ */ /*   if (changeDue > cidTotal) {
     status = "INSUFFICIENT_FUNDS";
   }
-  while (cidTotal > changeDue) {
-    // get change from drawer
-    // push to result
-    // subtract from cidTotal
-    result.push(changeDue);
-    cidTotal = changeDue;
+ */
+  for (i = cid.length - 1; i > 0; i--) {
+    // remove change from cid until change == 0 or cid == 0
+    //    console.log(`i ${i} `);
+    //    console.log(`cidValues ${cidValues[i]} changeDue ${changeDue}`);
+    let changeGiven = 0;
+    while (cidValues[i] <= changeDue) {
+      // get change from drawer
+      //      console.log(`cid[i][1] ${cid[i][1]}`);
+
+      cid[i][1] -= cidValues[i] / 100;
+      changeGiven += cidValues[i] / 100;
+      changeDue -= cidValues[i];
+
+      // push to result
+    }
+
+    // TODO: stop taking change when drawer is < change
+
+    cid[i][1] = changeGiven;
+    if (changeGiven > 0) {
+      result.push(cid[i]);
+      //      console.log(`result ${result}`);
+    }
   }
-  return [status, result];
+  return { status, result };
 }
 
 console.log(
