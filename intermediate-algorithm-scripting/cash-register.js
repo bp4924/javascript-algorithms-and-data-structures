@@ -35,10 +35,6 @@ function checkCashRegister(price, cash, cid) {
       changeGiven += cidValues[i];
       changeDue -= cidValues[i];
       // console.log(` NEW changeDue ${changeDue}`);
-      if (changeDue === cidValues[i - 1]) {
-        status = "CLOSED";
-        change = startCID;
-      }
     }
     console.log(` NEW changeDue ${changeDue}`);
 
@@ -49,6 +45,10 @@ function checkCashRegister(price, cash, cid) {
       change.push(cid[i]);
       //      console.log(`change ${change}`);
       // TODO: return Closed for exact change
+    }
+    if (changeDue === cidValues[i]) {
+      status = "CLOSED";
+      change = startCID;
     }
   }
   if (changeDue > 0) {
