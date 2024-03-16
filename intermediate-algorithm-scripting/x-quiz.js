@@ -1,3 +1,5 @@
+// what is the output?
+
 let name = "Lydia";
 
 function getName() {
