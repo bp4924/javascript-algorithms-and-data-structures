@@ -43,7 +43,8 @@ function checkCashRegister(price, cash, cid) {
     // push to change
     if (changeGiven > 0) {
       change.push(cid[i]);
-      //      console.log(`change ${change}`);
+      // console.log(`change ${change}`);
+
       // TODO: return Closed for exact change
     }
     if (changeDue === cidValues[i]) {
